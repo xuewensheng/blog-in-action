@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: blog-in-action
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    mode: HTML5
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=UTC&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    connectionProperties: druid.stat.mergeSql=true
+    maxActive: 200
+    initialSize: 10
+    maxWait: 60000
+    minIdle: 10
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    max-pool-prepared-statement-per-connection-size: 20
+    filters: stat,wall
+    use-global-data-source-stat: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  mvc:
+    favicon:
+      enabled: false
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.220.129:9300
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s
+      cluster-name: elasticsearch
+      repositories:
+        enabled: true
+server:
+  port: 8080
+  tomcat: 
+      uri-encoding: UTF-8
+  http:
+      encoding: 
+          force: true
+          charset: UTF-8
+          enabled: true
