@@ -45,6 +45,21 @@ spring:
       cluster-name: elasticsearch
       repositories:
         enabled: true
+  redis:
+    host: 20.18.10.129
+    port: 6379
+    password: 123456
+    lettuce:
+      pool:
+        #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
+        maxActive: 600
+        #最大空闲数
+        maxIdle: 200
+        minIdle: 0
+        #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
+        maxTotal: 1000
+        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        maxWaitMillis: 5000
 server:
   port: 8080
   tomcat: 

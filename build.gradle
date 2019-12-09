@@ -22,6 +22,7 @@ dependencies {
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'net.java.dev.jna:jna:5.3.1'
 	implementation 'com.alibaba:druid:1.1.17'
 	implementation 'mysql:mysql-connector-java:8.0.16'
@@ -29,5 +30,6 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
 	implementation 'es.nitaur.markdown:txtmark:0.16'
 	implementation 'org.apache.commons:commons-lang3:3.9'
+	implementation 'org.apache.commons:commons-pool2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
